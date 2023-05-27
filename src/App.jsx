@@ -5,7 +5,7 @@ import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
 import { connect } from "react-redux";
-import { NEW_API_DATA } from "./store/types";
+import { NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
 //conditional rendering
 class App extends Component {
   state = {};
@@ -43,16 +43,17 @@ class App extends Component {
   };
 
   onSearchInput = (e) => {
-    this.setState({ searchInput: e.target.value });
+    // this.setState({ searchInput: e.target.value });
+    this.props.dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
   };
 
   onLikeDislikeInput = (e) => {
-    console.log("yo");
+    // console.log("yo");
     this.setState({ likeDislikeInput: e.target.value });
   };
 
   render() {
-    console.log(this.props.simpsons);
+    // console.log(this.props.simpsons);
     //destructuring
     const { searchInput, likeDislikeInput } = this.state;
     const { simpsons } = this.props;
