@@ -9,18 +9,13 @@ class Character extends Component {
     //destructuring
     const { character, quote, image, id, characterDirection, liked } =
       this.props.item;
-    const { onLikeToggle, onDelete } = this.props;
+    const { onDelete } = this.props;
 
     if (characterDirection === "Right") {
       return (
         //this is like each "card"
         <div className="characterContainer">
-          <Name
-            character={character}
-            onLikeToggle={onLikeToggle}
-            id={id}
-            liked={liked}
-          />
+          <Name character={character} id={id} liked={liked} />
           <Quote quote={quote} />
           <Image image={image} character={character} liked={liked} />
           <Delete onDelete={onDelete} id={id} />
@@ -31,12 +26,7 @@ class Character extends Component {
     return (
       //this is like each "card"
       <div className="characterContainer">
-        <Name
-          character={character}
-          onLikeToggle={onLikeToggle}
-          id={id}
-          liked={liked}
-        />
+        <Name character={character} id={id} liked={liked} />
         <Image image={image} character={character} liked={liked} />
         <Quote quote={quote} />
         <Delete onDelete={onDelete} id={id} />

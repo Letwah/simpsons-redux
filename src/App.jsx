@@ -5,7 +5,7 @@ import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
 import { connect } from "react-redux";
-import { NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
+import { LIKE_TOGGLE, NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
 //conditional rendering
 class App extends Component {
   state = {};
@@ -29,16 +29,6 @@ class App extends Component {
     });
     const simpsons = [...this.state.simpsons];
     simpsons.splice(indexOf, 1);
-    this.setState({ simpsons });
-  };
-
-  onLikeToggle = (id) => {
-    const indexOf = this.state.simpsons.findIndex((char) => {
-      return char.id === id;
-    });
-    const simpsons = [...this.state.simpsons];
-    //invert if liked or not liked
-    simpsons[indexOf].liked = !simpsons[indexOf].liked;
     this.setState({ simpsons });
   };
 
@@ -105,11 +95,7 @@ class App extends Component {
           />
         </div>
 
-        <Simpsons
-          simpsons={simpsonsCopy}
-          onDelete={this.onDelete}
-          onLikeToggle={this.onLikeToggle}
-        />
+        <Simpsons simpsons={simpsonsCopy} onDelete={this.onDelete} />
       </>
     ); //must return HTML
   }

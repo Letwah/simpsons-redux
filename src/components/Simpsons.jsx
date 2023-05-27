@@ -7,7 +7,7 @@ class Simpsons extends Component {
     const {
       simpsons,
       onDelete,
-      onLikeToggle,
+
       onSearchInput,
       onLikeDislikeInput,
     } = this.props;
@@ -21,7 +21,6 @@ class Simpsons extends Component {
               item={item}
               key={item.id}
               onDelete={onDelete}
-              onLikeToggle={onLikeToggle}
               onLikeDislikeInput={onLikeDislikeInput}
             />
           );

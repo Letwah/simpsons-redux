@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { LIKE_TOGGLE } from "../store/types";
 
 class Name extends Component {
   render() {
@@ -7,7 +9,10 @@ class Name extends Component {
     return (
       <div>
         <h2>{character}</h2>
-        <button className="likeNotLike" onClick={() => onLikeToggle(id)}>
+        <button
+          className="likeNotLike"
+          onClick={() => this.props.dispatch({ type: LIKE_TOGGLE, id })}
+        >
           {liked ? "Liked" : "Not liked"}
         </button>
       </div>
@@ -15,4 +20,4 @@ class Name extends Component {
   }
 }
 
-export default Name;
+export default connect()(Name);
