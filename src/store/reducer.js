@@ -1,5 +1,11 @@
 import { initialState } from "./initialState.js";
-import { NEW_API_DATA, SET_SEARCH_INPUT, LIKE_TOGGLE } from "./types";
+import {
+  NEW_API_DATA,
+  SET_SEARCH_INPUT,
+  LIKE_TOGGLE,
+  DELETE_TOGGLE,
+  LIKE_DISLIKE_OPTION,
+} from "./types";
 
 //create logic that manipulates state
 export function reducer(state = initialState, action) {
@@ -8,9 +14,9 @@ export function reducer(state = initialState, action) {
       return { ...state, simpsons: action.payload };
 
     case SET_SEARCH_INPUT:
-      return { ...state, searchInput: payload };
+      return { ...state, searchInput: action.payload };
 
-    case LIKE_TOGGLE:
+    case LIKE_TOGGLE: {
       const indexOf = state.simpsons.findIndex((char) => {
         return char.id === action.id;
       });
@@ -18,6 +24,36 @@ export function reducer(state = initialState, action) {
       //invert if liked or not liked
       simpsons[indexOf].liked = !simpsons[indexOf].liked;
       return { ...state, simpsons };
+    }
+
+    case LIKE_DISLIKE_OPTION: {
+      const indexOf = state.simpsons.findIndex((char) => {
+        return char.id === action.id;
+      });
+      const simpsons = [...state.simpsons];
+      //sort by liked/not liked
+      if (likeDislikeInput === "liked") {
+        simpsonsCopy.sort((itemOne, itemTwo) => {
+          console.log(itemOne);
+          if (itemOne.liked === true) return -1;
+          if (!itemTwo.liked) return 1;
+        });
+      } else if (likeDislikeInput === "notLiked") {
+        simpsonsCopy.sort((itemOne, itemTwo) => {
+          if (itemOne.liked === true) return 1;
+          if (!itemTwo.liked) return -1;
+        });
+      }
+    }
+
+    case DELETE_TOGGLE: {
+      const indexOf = state.simpsons.findIndex((char) => {
+        return char.id === action.id;
+      });
+      const simpsons = [...state.simpsons];
+      simpsons.splice(indexOf, 1);
+      return { ...state, simpsons };
+    }
 
     default:
       console.log("reducer started OR INVALID reducer type. probably a typo");

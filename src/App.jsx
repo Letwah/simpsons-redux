@@ -5,7 +5,7 @@ import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
 import { connect } from "react-redux";
-import { LIKE_TOGGLE, NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
+import { NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
 //conditional rendering
 class App extends Component {
   state = {};
@@ -23,23 +23,15 @@ class App extends Component {
     this.props.dispatch({ type: NEW_API_DATA, payload: data });
   }
 
-  onDelete = (id) => {
-    const indexOf = this.state.simpsons.findIndex((char) => {
-      return char.id === id;
-    });
-    const simpsons = [...this.state.simpsons];
-    simpsons.splice(indexOf, 1);
-    this.setState({ simpsons });
-  };
+  onDelete = (id) => {};
 
   onSearchInput = (e) => {
     // this.setState({ searchInput: e.target.value });
-    this.props.dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
   };
 
   onLikeDislikeInput = (e) => {
     // console.log("yo");
-    this.setState({ likeDislikeInput: e.target.value });
+    // this.props.dispatch({ type: LIKE_DISLIKE_OPTION, payload: e.target.value });
   };
 
   render() {

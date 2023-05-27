@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { DELETE_TOGGLE } from "../store/types";
+
 class Delete extends Component {
   render() {
     const { onDelete, id } = this.props;
     return (
       <div>
-        <button onClick={() => onDelete(id)} className="bin">
+        <button
+          className="bin"
+          onClick={() => this.props.dispatch({ type: DELETE_TOGGLE, id })}
+        >
           Delete
         </button>
       </div>
@@ -12,4 +18,4 @@ class Delete extends Component {
   }
 }
 
-export default Delete;
+export default connect()(Delete);

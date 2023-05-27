@@ -1,3 +1,5 @@
 export const NEW_API_DATA = " NEW_API_DATA";
 export const SET_SEARCH_INPUT = "SET_SEARCH_INPUT";
 export const LIKE_TOGGLE = "LIKE_TOGGLE ";
+export const DELETE_TOGGLE = "DELETE_TOGGLE";
+export const LIKE_DISLIKE_OPTION = "LIKE_DISLIKE_OPTION";
