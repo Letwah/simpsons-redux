@@ -4,7 +4,8 @@ import Loading from "./components/Loading";
 import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
-
+import { connect } from "react-redux";
+import { NEW_API_DATA } from "./store/types";
 //conditional rendering
 class App extends Component {
   state = {};
@@ -18,7 +19,8 @@ class App extends Component {
     data.forEach((element, index) => {
       element.id = index + Math.random();
     });
-    this.setState({ simpsons: data });
+    // this.setState({ simpsons: data }); //to remove
+    this.props.dispatch({ type: NEW_API_DATA, payload: data });
   }
 
   onDelete = (id) => {
@@ -50,9 +52,10 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.props.simpsons);
     //destructuring
-    const { simpsons, searchInput, likeDislikeInput } = this.state;
+    const { searchInput, likeDislikeInput } = this.state;
+    const { simpsons } = this.props;
 
     //if nothing in state show "loading"
     if (!simpsons) return <Loading />;
@@ -111,4 +114,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { simpsons: state.simpsons };
+}
+
+export default connect(mapStateToProps)(App);
