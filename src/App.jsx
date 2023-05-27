@@ -58,18 +58,18 @@ class App extends Component {
 
     //sort by liked/not liked
 
-    if (likeDislikeInput === "liked") {
-      simpsonsCopy.sort((itemOne, itemTwo) => {
-        console.log(itemOne);
-        if (itemOne.liked === true) return -1;
-        if (!itemTwo.liked) return 1;
-      });
-    } else if (likeDislikeInput === "notLiked") {
-      simpsonsCopy.sort((itemOne, itemTwo) => {
-        if (itemOne.liked === true) return 1;
-        if (!itemTwo.liked) return -1;
-      });
-    }
+    // if (likeDislikeInput === "liked") {
+    //   simpsonsCopy.sort((itemOne, itemTwo) => {
+    //     console.log(itemOne);
+    //     if (itemOne.liked === true) return -1;
+    //     if (!itemTwo.liked) return 1;
+    //   });
+    // } else if (likeDislikeInput === "notLiked") {
+    //   simpsonsCopy.sort((itemOne, itemTwo) => {
+    //     if (itemOne.liked === true) return 1;
+    //     if (!itemTwo.liked) return -1;
+    //   });
+    // }
 
     // calculate the total
     let total = 0;

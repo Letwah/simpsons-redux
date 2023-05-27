@@ -33,17 +33,18 @@ export function reducer(state = initialState, action) {
       const simpsons = [...state.simpsons];
       //sort by liked/not liked
       if (likeDislikeInput === "liked") {
-        simpsonsCopy.sort((itemOne, itemTwo) => {
+        simpsons.sort((itemOne, itemTwo) => {
           console.log(itemOne);
           if (itemOne.liked === true) return -1;
           if (!itemTwo.liked) return 1;
         });
       } else if (likeDislikeInput === "notLiked") {
-        simpsonsCopy.sort((itemOne, itemTwo) => {
+        simpsons.sort((itemOne, itemTwo) => {
           if (itemOne.liked === true) return 1;
           if (!itemTwo.liked) return -1;
         });
       }
+      return { ...state, simpsons };
     }
 
     case DELETE_TOGGLE: {
