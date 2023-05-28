@@ -5,7 +5,11 @@ import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
 import { connect } from "react-redux";
-import { NEW_API_DATA, SET_SEARCH_INPUT } from "./store/types";
+import {
+  NEW_API_DATA,
+  SET_SEARCH_INPUT,
+  LIKE_DISLIKE_OPTION,
+} from "./store/types";
 //conditional rendering
 class App extends Component {
   state = {};
@@ -27,10 +31,11 @@ class App extends Component {
 
   onSearchInput = (e) => {
     // this.setState({ searchInput: e.target.value });
+    this.props.dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
   };
 
   onLikeDislikeInput = (e) => {
-    // console.log("yo");
+    console.log("yo");
     this.props.dispatch({ type: LIKE_DISLIKE_OPTION, payload: e.target.value });
   };
 
