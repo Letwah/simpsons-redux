@@ -49,13 +49,13 @@
 
 /*MY STUFF*/
 
-.liked {
+img.liked {
   width: 150px;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
 
-.notLiked {
+img.notLiked {
   width: 150px;
   transform: scale(0.75);
   filter: grayscale(1);
