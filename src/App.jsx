@@ -9,6 +9,7 @@ import {
   NEW_API_DATA,
   SET_SEARCH_INPUT,
   LIKE_DISLIKE_OPTION,
+  DELETE_TOGGLE,
 } from "./store/types";
 //conditional rendering
 class App extends Component {
@@ -27,7 +28,9 @@ class App extends Component {
     this.props.dispatch({ type: NEW_API_DATA, payload: data });
   }
 
-  onDelete = (id) => {};
+  onDelete = (id) => {
+    this.props.dispatch({ type: DELETE_TOGGLE, payload: id });
+  };
 
   onSearchInput = (e) => {
     // this.setState({ searchInput: e.target.value });
@@ -103,6 +106,7 @@ function mapStateToProps(state) {
     simpsons: state.simpsons,
     searchInput: state.searchInput,
     likeDislikeInput: state.likeDislikeInput,
+    delete: state.delete,
   };
 }
 
