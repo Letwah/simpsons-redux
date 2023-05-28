@@ -9,7 +9,6 @@ class Character extends Component {
     //destructuring
     const { character, quote, image, id, characterDirection, liked } =
       this.props.item;
-    const { onDelete } = this.props;
 
     if (characterDirection === "Right") {
       return (
@@ -18,7 +17,7 @@ class Character extends Component {
           <Name character={character} id={id} liked={liked} />
           <Quote quote={quote} />
           <Image image={image} character={character} liked={liked} />
-          <Delete onDelete={onDelete} id={id} />
+          <Delete id={id} />
         </div>
       );
     }
@@ -29,7 +28,7 @@ class Character extends Component {
         <Name character={character} id={id} liked={liked} />
         <Image image={image} character={character} liked={liked} />
         <Quote quote={quote} />
-        <Delete onDelete={onDelete} id={id} />
+        <Delete id={id} />
       </div>
     );
   }

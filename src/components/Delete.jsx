@@ -4,7 +4,7 @@ import { DELETE_TOGGLE } from "../store/types";
 
 class Delete extends Component {
   render() {
-    const { onDelete, id } = this.props;
+    const { id } = this.props;
     return (
       <div>
         <button

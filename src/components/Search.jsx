@@ -3,16 +3,13 @@ import { connect } from "react-redux";
 import { SET_SEARCH_INPUT, LIKE_DISLIKE_OPTION } from "../store/types";
 
 class Search extends Component {
-  state = {};
   render() {
-    const { onSearchInput, onLikeDislikeInput } = this.props;
-    // console.log(typeof onLikeDislikeInput);
-
+    const { dispatch } = this.props;
     return (
       <>
         <input
           onInput={(e) =>
-            this.props.dispatch({
+            dispatch({
               type: SET_SEARCH_INPUT,
               payload: e.target.value,
             })
@@ -24,7 +21,7 @@ class Search extends Component {
 
         <select
           onChange={(e) =>
-            this.props.dispatch({
+            dispatch({
               type: LIKE_DISLIKE_OPTION,
               payload: e.target.value,
             })

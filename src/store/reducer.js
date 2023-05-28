@@ -27,11 +27,6 @@ export function reducer(state = initialState, action) {
     }
 
     case LIKE_DISLIKE_OPTION: {
-      // const indexOf = state.simpsons.findIndex((char) => {
-      //   return char.id === action.payload;
-      // });
-      // const simpsons = [...state.simpsons];
-
       return { ...state, likeDislikeInput: action.payload };
     }
 

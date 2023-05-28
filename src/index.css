@@ -62,7 +62,7 @@ button {
 }
 
 /* CSS */
-button.likeNotLike,
+button.liked,
 button.bin {
   align-items: center;
   background-color: #f750c5;
@@ -87,7 +87,7 @@ button.bin {
   touch-action: manipulation;
 }
 
-button.likeNotLike:after,
+button.liked:after,
 button.bin:after {
   background-color: #111;
   border-radius: 8px;
@@ -103,16 +103,16 @@ button.bin:after {
   z-index: -1;
 }
 
-button.likeNotLike:hover:after,
+button.liked:hover:after,
 button.bin:hover:after {
   transform: translate(0, 0);
 }
 
-button.likeNotLike:active {
+button.liked:active {
   outline: 0;
 }
 
-button.likeNotLike:hover {
+button.liked:hover {
   outline: 0;
 }
 
@@ -124,7 +124,7 @@ button.bin:hover {
 }
 
 @media (min-width: 768px) {
-  button.likeNotLike {
+  button.liked {
     padding: 0 40px;
   }
 }

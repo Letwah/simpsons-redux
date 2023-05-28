@@ -5,16 +5,9 @@ import Simpsons from "./components/Simpsons";
 import "./App.css";
 import Search from "./components/Search";
 import { connect } from "react-redux";
-import {
-  NEW_API_DATA,
-  SET_SEARCH_INPUT,
-  LIKE_DISLIKE_OPTION,
-  DELETE_TOGGLE,
-} from "./store/types";
+import { NEW_API_DATA } from "./store/types";
 //conditional rendering
 class App extends Component {
-  state = {};
-
   //lifecycle method
   async componentDidMount() {
     const { data } = await axios.get(
@@ -24,26 +17,11 @@ class App extends Component {
     data.forEach((element, index) => {
       element.id = index + Math.random();
     });
-    // this.setState({ simpsons: data }); //to remove
+
     this.props.dispatch({ type: NEW_API_DATA, payload: data });
   }
 
-  onDelete = (id) => {
-    this.props.dispatch({ type: DELETE_TOGGLE, payload: id });
-  };
-
-  onSearchInput = (e) => {
-    // this.setState({ searchInput: e.target.value });
-    this.props.dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
-  };
-
-  onLikeDislikeInput = (e) => {
-    console.log("yo");
-    this.props.dispatch({ type: LIKE_DISLIKE_OPTION, payload: e.target.value });
-  };
-
   render() {
-    // console.log(this.props.simpsons);
     //destructuring
 
     const { simpsons, searchInput, likeDislikeInput } = this.props;
@@ -68,14 +46,13 @@ class App extends Component {
 
     if (likeDislikeInput === "liked") {
       simpsonsCopy.sort((itemOne, itemTwo) => {
-        console.log(itemOne);
         if (itemOne.liked === true) return -1;
         if (!itemTwo.liked) return 1;
       });
     } else if (likeDislikeInput === "notLiked") {
       simpsonsCopy.sort((itemOne, itemTwo) => {
-        if (itemOne.liked === true) return 1;
-        if (!itemTwo.liked) return -1;
+        if (itemTwo.liked === true) return -1;
+        if (!itemOne.liked) return 1;
       });
     }
 
@@ -89,13 +66,10 @@ class App extends Component {
       <>
         <div className="title">
           <h1>Total No of Liked Characters #{total}</h1>
-          <Search
-            onSearchInput={this.onSearchInput}
-            onLikeDislikeInput={this.onLikeDislikeInput}
-          />
+          <Search />
         </div>
 
-        <Simpsons simpsons={simpsonsCopy} onDelete={this.onDelete} />
+        <Simpsons simpsons={simpsonsCopy} />
       </>
     ); //must return HTML
   }
@@ -106,7 +80,6 @@ function mapStateToProps(state) {
     simpsons: state.simpsons,
     searchInput: state.searchInput,
     likeDislikeInput: state.likeDislikeInput,
-    delete: state.delete,
   };
 }
 
