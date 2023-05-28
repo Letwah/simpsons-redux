@@ -31,7 +31,7 @@ class App extends Component {
 
   onLikeDislikeInput = (e) => {
     // console.log("yo");
-    // this.props.dispatch({ type: LIKE_DISLIKE_OPTION, payload: e.target.value });
+    this.props.dispatch({ type: LIKE_DISLIKE_OPTION, payload: e.target.value });
   };
 
   render() {
@@ -58,18 +58,18 @@ class App extends Component {
 
     //sort by liked/not liked
 
-    // if (likeDislikeInput === "liked") {
-    //   simpsonsCopy.sort((itemOne, itemTwo) => {
-    //     console.log(itemOne);
-    //     if (itemOne.liked === true) return -1;
-    //     if (!itemTwo.liked) return 1;
-    //   });
-    // } else if (likeDislikeInput === "notLiked") {
-    //   simpsonsCopy.sort((itemOne, itemTwo) => {
-    //     if (itemOne.liked === true) return 1;
-    //     if (!itemTwo.liked) return -1;
-    //   });
-    // }
+    if (likeDislikeInput === "liked") {
+      simpsonsCopy.sort((itemOne, itemTwo) => {
+        console.log(itemOne);
+        if (itemOne.liked === true) return -1;
+        if (!itemTwo.liked) return 1;
+      });
+    } else if (likeDislikeInput === "notLiked") {
+      simpsonsCopy.sort((itemOne, itemTwo) => {
+        if (itemOne.liked === true) return 1;
+        if (!itemTwo.liked) return -1;
+      });
+    }
 
     // calculate the total
     let total = 0;
@@ -94,7 +94,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { simpsons: state.simpsons };
+  return { simpsons: state.simpsons, search: state.search };
 }
 
 export default connect(mapStateToProps)(App);
