@@ -42,8 +42,8 @@ class App extends Component {
   render() {
     // console.log(this.props.simpsons);
     //destructuring
-    const { searchInput, likeDislikeInput } = this.state;
-    const { simpsons } = this.props;
+
+    const { simpsons, searchInput, likeDislikeInput } = this.props;
 
     //if nothing in state show "loading"
     if (!simpsons) return <Loading />;
@@ -99,7 +99,11 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { simpsons: state.simpsons, search: state.search };
+  return {
+    simpsons: state.simpsons,
+    searchInput: state.searchInput,
+    likeDislikeInput: state.likeDislikeInput,
+  };
 }
 
 export default connect(mapStateToProps)(App);

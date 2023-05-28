@@ -11,7 +11,7 @@ class Search extends Component {
     return (
       <>
         <input
-          onInput={() =>
+          onInput={(e) =>
             this.props.dispatch({
               type: SET_SEARCH_INPUT,
               payload: e.target.value,
@@ -23,7 +23,7 @@ class Search extends Component {
         {/* {" "} */}
 
         <select
-          onChange={() =>
+          onChange={(e) =>
             this.props.dispatch({
               type: LIKE_DISLIKE_OPTION,
               payload: e.target.value,
