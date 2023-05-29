@@ -29,7 +29,17 @@ class App extends Component {
     //if nothing in state show "loading"
     if (!simpsons) return <Loading />;
 
-    if (simpsons.length === 0) return <p>You deleted everyone!</p>;
+    if (simpsons.length === 0)
+      return (
+        <>
+          <p className="deletedEveryone animate-flicker">
+            You deleted everyone!
+          </p>
+          <h2 className="reload" href=".">
+            RELOAD PAGE
+          </h2>
+        </>
+      );
 
     //filter by search
     let simpsonsCopy = [...simpsons];

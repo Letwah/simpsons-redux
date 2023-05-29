@@ -94,10 +94,15 @@ h2,
 .title select {
   margin-left: 20px;
 }
-
+h1 {
+  font-size: 2.4em;
+  line-height: 1.1;
+}
 h2 {
   contain: content;
   max-width: 120px;
+  font-size: 1.4em;
+  line-height: 1.1;
 }
 
 div.title > img.logo {
@@ -138,6 +143,80 @@ p {
   font-family: "Courier New", Courier, monospace;
   font-weight: 700;
 }
+/* you deleted everyone!*/
+
+.deletedEveryone {
+  /* position the div in center */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  border: 2px dashed #f750c5;
+  border-radius: 30px;
+  color: #f750c5;
+  padding: 2rem;
+}
+
+.reload {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-flicker {
+  -webkit-animation: flickerAnimation 0.5s infinite;
+  -moz-animation: flickerAnimation 0.5s infinite;
+  -o-animation: flickerAnimation 0.5s infinite;
+  animation: flickerAnimation 0.5s infinite;
+}
+
+/* END of 'you deleted everyone!'*/
 
 @keyframes pulse {
   0% {
@@ -156,6 +235,10 @@ p {
 /*loader*/
 
 .loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 130px;
   height: 48px;
   display: inline-block;

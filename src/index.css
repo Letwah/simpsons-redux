@@ -37,11 +37,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 2.4em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -94,6 +89,10 @@ button.bin {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+
+/* button.liked:active {
+  background-color: #ffe200;
+} */
 
 button.liked:after,
 button.bin:after {
