@@ -62,8 +62,11 @@ img.notLiked {
 }
 
 /*title*/
+
 .title {
   box-shadow: 0 0 50px 15px #f750c5;
+  width: 80vw;
+  margin: auto;
 }
 
 .title,
@@ -85,10 +88,20 @@ h2,
 .title select {
   padding: 0.8rem;
   border: none;
+  margin-bottom: 1rem;
 }
 
 .title select {
   margin-left: 20px;
+}
+
+h2 {
+  contain: content;
+  max-width: 120px;
+}
+
+div.title > img.logo {
+  padding-bottom: 0;
 }
 
 .characterContainer {
@@ -119,6 +132,11 @@ h2,
 div > img.liked {
   transform: scale(1);
   animation: pulse 2s infinite;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
 }
 
 @keyframes pulse {
@@ -169,7 +187,7 @@ div > img.liked {
 @media screen and (min-width: 875px) {
   .characterContainer {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
     gap: 25px;
   }
 

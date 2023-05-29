@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +14,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@font-face {
+  font-family: "homerfont";
+  src: url(/src/assets/homerfont.woff2) format(woff2);
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,6 +29,7 @@ a:hover {
 }
 
 body {
+  font-family: "homerfont";
   margin: 0;
   display: flex;
   place-items: stretch;
@@ -32,7 +38,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2.4em;
   line-height: 1.1;
 }
 
@@ -62,6 +68,7 @@ button {
 }
 
 /* CSS */
+
 button.liked,
 button.bin {
   align-items: center;
@@ -72,7 +79,8 @@ button.bin {
   color: #111;
   cursor: pointer;
   display: flex;
-  font-family: Inter, sans-serif;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
   font-size: 16px;
   height: 48px;
   justify-content: center;

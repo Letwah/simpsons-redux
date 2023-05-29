@@ -6,7 +6,7 @@ class Quote extends Component {
   render() {
     return (
       <div>
-        <p>{this.props.quote}</p>
+        <p>"{this.props.quote}"</p>
       </div>
     );
   }

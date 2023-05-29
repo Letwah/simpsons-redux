@@ -65,10 +65,14 @@ class App extends Component {
     return (
       <>
         <div className="title">
-          <h1>Total No of Liked Characters #{total}</h1>
+          <img
+            className="logo"
+            src="src/assets/simpsons-logo-pink.svg"
+            alt="simpsons logo"
+          ></img>
+          <h1>Total No of Liked Characters is-{total}</h1>
           <Search />
         </div>
-
         <Simpsons simpsons={simpsonsCopy} />
       </>
     ); //must return HTML
